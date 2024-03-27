@@ -1,0 +1,15 @@
+.my-anchor-style-tag {
+  anchor-name: --my-anchor-style-tag;
+}
+
+.my-target-style-tag {
+  position: absolute;
+  top: anchor(--my-anchor-style-tag bottom);
+  left: anchor(--my-anchor-style-tag start);
+  z-index: 100;
+  opacity: 0;
+}
+
+.my-target-style-tag--show {
+  opacity: 1;
+}
