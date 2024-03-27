@@ -202,7 +202,7 @@ class MyDropdown extends LitElement {
   }
 
   render() {
-    let id = 'dropdown__' + window.crypto.randomUUID();
+    let id = 'dropdown__' + window.ZID();
 
     return html`
       <div class="dropdown">
