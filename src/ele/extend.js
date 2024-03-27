@@ -6,6 +6,7 @@ import './datepicker.js';
 import './inputPopover.js';
 import './swiper.js';
 import './scroll.js';
+import './editor.js';
 
 class MySelectPanel extends LitElement {
   constructor() {

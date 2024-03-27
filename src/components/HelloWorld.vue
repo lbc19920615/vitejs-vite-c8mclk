@@ -142,6 +142,9 @@ function changeLitTpl() {
 
     <p>滚动</p>
     <my-scroller></my-scroller>
+
+    <p>富文本</p>
+    <my-editor></my-editor>
   </form>
 
   <button @click="handleSubmit">提交</button>

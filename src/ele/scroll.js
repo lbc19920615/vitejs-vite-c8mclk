@@ -163,7 +163,6 @@ class MyScroller extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     setTimeout(() => {
-      console.log(this.children[0]);
       let wheelWrapper = this.shadowRoot.querySelector('#wrapper').children[0];
       this.wheelEle = new BScroll(wheelWrapper, {
         wheel: {

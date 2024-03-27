@@ -10,6 +10,12 @@
   opacity: 0;
 }
 
+.my-target-style-tag--init {
+  opacity: 0;
+}
+
 .my-target-style-tag--show {
   opacity: 1;
 }
+
+
