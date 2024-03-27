@@ -178,11 +178,6 @@ class MyScroller extends LitElement {
     }, 100);
   }
   render() {
-    // <li
-
-    // :class="{'wheel-disabled-item':item.disabled}"
-    // class="wheel-item">{{item.text}}</li>
-
     let content = repeat(
       DATA,
       (v) => v,
