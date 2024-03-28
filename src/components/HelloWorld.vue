@@ -70,8 +70,8 @@ function changeLitTpl() {
     <button type="button" @click="count++">count is {{ count }}</button>
   </div>
 
-  <button popovertarget="mypopover">Toggle the popover</button>
-<div id="mypopover" popover>Popover content</div>
+  <button popovertarget="mypopover1">Toggle the popover</button>
+<div id="mypopover1" popover>Popover content</div>
 
   <form ref="myform" id="myform">
     <p>input</p>

@@ -1,4 +1,4 @@
-import '@oddbird/popover-polyfill';
+
 
 if (!('anchorName' in document.documentElement.style)) {
   import('@oddbird/css-anchor-positioning');
@@ -15,3 +15,6 @@ import './ele/extend.js';
 let app = createApp(App);
 app.config.compilerOptions.isCustomElement = (tag) => tag.includes('-');
 app.mount('#app');
+
+
+import './popover.js';
