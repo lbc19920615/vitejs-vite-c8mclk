@@ -22,7 +22,6 @@ class MySelectPanel extends LitElement {
 
   .navbar {
     display: flex;
-    
     gap: 10px;
     .item.active {
       color: var(--my-select-panel-active-color);
@@ -30,13 +29,12 @@ class MySelectPanel extends LitElement {
   }
   .container {
     display: flex;
-    width: 100%;
     overflow: auto;
     overflow-x: hidden; 
-    .item {
-      width: 100%;
-      flex-shrink: 0;
-    }
+  }
+  .container   .item {
+    width: 100%;
+    flex-shrink: 0;
   }
   `;
 
@@ -60,7 +58,7 @@ class MySelectPanel extends LitElement {
     this.sindex = index;
     this.shadowRoot
       .querySelector(`[con-index='${index}']`)
-      ?.scrollIntoView({ behavior: 'smooth' });
+      ?.scrollIntoView({ behavior: 'smooth',block: 'nearest', inline: 'center'  });
   }
 
   render() {

@@ -122,12 +122,17 @@ class MyDropdown extends LitElement {
       left: '0',
       top: '0',
     };
+    this.listEle = null
     this.resizeHandler = this._resizeHandler.bind(this);
     window.addEventListener('resize', this.resizeHandler);
   }
 
   connectedCallback() {
     super.connectedCallback();
+    setTimeout(() => {
+      this.listEle = this.shadowRoot.querySelector('.list')
+      this._fixedcssanchor();
+    }, 100)
   }
 
   disconnectedCallback() {
@@ -137,23 +142,25 @@ class MyDropdown extends LitElement {
   }
 
   static styles = css`
-    .dropdown button {
-      anchor-name: --my-anchor;
-    }
-
     .dropdown .list {
       position: absolute;
-      top: anchor(--my-anchor bottom);
-      left: anchor(--my-anchor left);
-      right: anchor(--my-anchor right);
       margin: 0;
       border: 1px solid #c5c5c5;
       border-top: 0;
+      opacity: 0;
+      pointer-events: none;
+      background-color: #fff;
     }
 
     .dropdown .list-con {
       padding: 0;
       margin: 0;
+    }
+
+    .dropdown .list--open {
+      opacity: 1;
+      z-index: 1000;
+      pointer-events: all;
     }
   `;
 
@@ -186,12 +193,13 @@ class MyDropdown extends LitElement {
   }
 
   _onTrigger() {
+    this.listEle.classList.toggle('list--open')
     this._fixedcssanchor();
   }
 
   _onClickHandler(e) {
     if (e.target !== e.currentTarget) {
-      e.currentTarget.parentElement.hidePopover();
+      this.listEle.classList.toggle('list--open')
       let myEvent = new CustomEvent('item_click', {
         detail: { message: 'item_click', target: e.target },
         bubbles: true,
@@ -209,13 +217,11 @@ class MyDropdown extends LitElement {
         <button
           ${ref(this.buttonRef)}
           @mousedown="${this._onTrigger}"
-          popovertarget="${id}"
         >
           <slot name="trigger"></slot>
         </button>
         <div
           class="list"
-          popover="auto"
           id="${id}"
           style=${styleMap(this.stylemap)}
         >

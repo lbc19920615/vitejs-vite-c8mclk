@@ -1,3 +1,5 @@
+import '@oddbird/popover-polyfill';
+
 if (!('anchorName' in document.documentElement.style)) {
   import('@oddbird/css-anchor-positioning');
 }
